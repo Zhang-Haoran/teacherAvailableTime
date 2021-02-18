@@ -68,7 +68,7 @@ public class TimeRecordController {
         return ResponseEntity.ok(timeRecordService.modify(timeRecordId, timeRecordPutDto));
     }
 
-    @DeleteMapping("/{timeRecord_id}")
+    @DeleteMapping("/{timeRecordId}")
     public ResponseEntity delete(@PathVariable Long timeRecordId) {
         timeRecordService.delete(timeRecordId);
         return ResponseEntity.ok().build();
