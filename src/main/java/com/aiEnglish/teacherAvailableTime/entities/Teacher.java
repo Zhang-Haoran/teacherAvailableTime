@@ -15,10 +15,10 @@ import java.util.Set;
 
 public class Teacher {
     @Id
-    @Column(name="foreign_teacher_id")
+    @Column(name="teacher_id")
     private Long id;
 
-    @Column(name="foreign_teacher_name")
+    @Column(name="teacher_name")
     private String name;
 
     @Column(name="weekly_expected_hours")
@@ -27,9 +27,9 @@ public class Teacher {
     @Column(name="work_base")
     private String work_base;
 
-    @Column(name="gmt_modified")
-    private String gmt_modified;
-
     @OneToMany(mappedBy = "teacher")
     private Set<TimeRecord> timeRecords;
+
+    @OneToMany(mappedBy = "teacher")
+    private Set<EnglishClass> englishClasses;
 }

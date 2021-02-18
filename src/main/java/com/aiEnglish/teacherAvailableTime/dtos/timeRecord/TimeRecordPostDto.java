@@ -4,9 +4,7 @@ import lombok.Data;
 
 @Data
 public class TimeRecordPostDto {
-    private Long id;
     private String startTime;
     private String endTime;
-    private Long batch_id;
     private Long teacher;
 }

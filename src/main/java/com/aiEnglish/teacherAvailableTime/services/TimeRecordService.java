@@ -2,6 +2,7 @@ package com.aiEnglish.teacherAvailableTime.services;
 
 import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordGetDto;
 import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordPostDto;
+import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordPutDto;
 import com.aiEnglish.teacherAvailableTime.entities.TimeRecord;
 import com.aiEnglish.teacherAvailableTime.mappers.TimeRecordMapper;
 import com.aiEnglish.teacherAvailableTime.repositories.TeacherRepository;
@@ -37,5 +38,17 @@ public class TimeRecordService {
 
     public List<TimeRecordGetDto> findTimeRecordsByTeacherId(Long id) {
         return timeRecordMapper.fromEntities(timeRecordRepository.findTimeRecordsByTeacherId(id));
+    }
+
+    public TimeRecordGetDto modify(Long id, TimeRecordPutDto timeRecordPutDto) {
+        TimeRecord timeRecord = new TimeRecord();
+        timeRecordMapper.copy(timeRecordPutDto, timeRecord);
+        timeRecord.setId(id);
+
+        return timeRecordMapper.fromEntity(timeRecordRepository.save(timeRecord));
+    }
+
+    public void clear() {
+        timeRecordRepository.deleteAll();
     }
 }

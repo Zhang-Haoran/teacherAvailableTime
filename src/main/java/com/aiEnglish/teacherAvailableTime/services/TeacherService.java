@@ -50,4 +50,8 @@ public class TeacherService {
             return false;
         return true;
     }
+
+    public void clear() {
+        teacherRepository.deleteAll();
+    }
 }

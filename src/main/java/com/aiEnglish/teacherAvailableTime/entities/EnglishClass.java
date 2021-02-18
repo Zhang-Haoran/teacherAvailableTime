@@ -8,18 +8,18 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Table(name="records")
-public class TimeRecord {
+@Table(name="classes")
+public class EnglishClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="record_id")
+    @Column(name="class_id")
     private Long id;
 
-    @Column(name="startTime")
-    private String startTime;
+    @Column(name="date")
+    private String date;
 
-    @Column(name="endTime")
-    private String endTime;
+    @Column(name="time")
+    private String time;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id", nullable = false)
