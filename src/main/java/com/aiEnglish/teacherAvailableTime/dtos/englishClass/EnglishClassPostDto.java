@@ -5,6 +5,11 @@ import lombok.Data;
 @Data
 public class EnglishClassPostDto {
     private String date;
-    private String time;
-    private String teacher;
+    private String startTime;
+    private String endTime;
+    private String special;
+    private String uniform;
+    private String studio;
+    private String topic;
+    private Long teacher;
 }

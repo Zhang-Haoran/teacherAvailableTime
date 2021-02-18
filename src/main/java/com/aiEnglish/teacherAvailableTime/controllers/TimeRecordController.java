@@ -1,8 +1,7 @@
 package com.aiEnglish.teacherAvailableTime.controllers;
 
 import com.aiEnglish.teacherAvailableTime.CsvReader;
-import com.aiEnglish.teacherAvailableTime.Headers;
-import com.aiEnglish.teacherAvailableTime.dtos.teacher.TeacherGetDto;
+import com.aiEnglish.teacherAvailableTime.TeacherTimeHeaders;
 import com.aiEnglish.teacherAvailableTime.dtos.teacher.TeacherPostDto;
 import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordGetDto;
 import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordPostDto;
@@ -34,30 +33,30 @@ public class TimeRecordController {
     public ResponseEntity<Object> init() {
         timeRecordService.clear();
         teacherService.clear();
-        String[] headers = new String[Headers.values().length];
-        for(Headers header: Headers.values())
+        String[] headers = new String[TeacherTimeHeaders.values().length];
+        for(TeacherTimeHeaders header: TeacherTimeHeaders.values())
             headers[header.getIndex()] = header.getValue();
 
         List<String[]> data = CsvReader.readCSV("data/ExportedAvailableTimes.csv",headers);
 
         for(String[] row: data){
-            Boolean isTeacherExisted = teacherService.isExisted(Long.valueOf(row[Headers.TEACHER_ID.getIndex()]));
+            Boolean isTeacherExisted = teacherService.isExisted(Long.valueOf(row[TeacherTimeHeaders.TEACHER_ID.getIndex()]));
             if(!isTeacherExisted){
                 TeacherPostDto teacherPostDto = new TeacherPostDto();
-                teacherPostDto.setId(Long.valueOf(row[Headers.TEACHER_ID.getIndex()]));
-                teacherPostDto.setName(row[Headers.TEACHER_NAME.getIndex()]);
+                teacherPostDto.setId(Long.valueOf(row[TeacherTimeHeaders.TEACHER_ID.getIndex()]));
+                teacherPostDto.setName(row[TeacherTimeHeaders.TEACHER_NAME.getIndex()]);
                 teacherPostDto.setWeekly_expected_hours(
-                        row[Headers.WEEKLY_EXPECTED_HOURS.getIndex()].isEmpty() ?
-                                38.0:Double.valueOf(row[Headers.WEEKLY_EXPECTED_HOURS.getIndex()]));
-                teacherPostDto.setWork_base(row[Headers.WORK_BASE.getIndex()]);
+                        row[TeacherTimeHeaders.WEEKLY_EXPECTED_HOURS.getIndex()].isEmpty() ?
+                                38.0:Double.valueOf(row[TeacherTimeHeaders.WEEKLY_EXPECTED_HOURS.getIndex()]));
+                teacherPostDto.setWork_base(row[TeacherTimeHeaders.WORK_BASE.getIndex()]);
 
                 teacherService.create(teacherPostDto);
             }
 
             TimeRecordPostDto timeRecordPostDto = new TimeRecordPostDto();
-            timeRecordPostDto.setTeacher(Long.valueOf(row[Headers.TEACHER_ID.getIndex()]));
-            timeRecordPostDto.setStartTime(row[Headers.START_TIME.getIndex()]);
-            timeRecordPostDto.setEndTime(row[Headers.END_TIME.getIndex()]);
+            timeRecordPostDto.setTeacher(Long.valueOf(row[TeacherTimeHeaders.TEACHER_ID.getIndex()]));
+            timeRecordPostDto.setStartTime(row[TeacherTimeHeaders.START_TIME.getIndex()]);
+            timeRecordPostDto.setEndTime(row[TeacherTimeHeaders.END_TIME.getIndex()]);
             timeRecordService.create(timeRecordPostDto);
         }
         return ResponseEntity.ok("");

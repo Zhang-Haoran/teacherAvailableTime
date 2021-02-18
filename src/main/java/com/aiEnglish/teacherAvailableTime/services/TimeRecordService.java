@@ -27,9 +27,10 @@ public class TimeRecordService {
     }
 
     public TimeRecordGetDto create(TimeRecordPostDto timeRecordPostDto){
-        TimeRecord timeRecord = timeRecordRepository.save(timeRecordMapper.toEntity(timeRecordPostDto));
-        TimeRecordGetDto timeRecordGetDto = timeRecordMapper.fromEntity(timeRecord);
-        timeRecordGetDto.setTeacher_name(timeRecord.getTeacher().getName());
+        TimeRecord timeRecord = timeRecordMapper.toEntity(timeRecordPostDto);
+        TimeRecord savedTimeRecord = timeRecordRepository.save(timeRecord);
+        TimeRecordGetDto timeRecordGetDto = timeRecordMapper.fromEntity(savedTimeRecord);
+        timeRecordGetDto.setTeacher_name(savedTimeRecord.getTeacher().getName());
 
         return timeRecordGetDto;
     }

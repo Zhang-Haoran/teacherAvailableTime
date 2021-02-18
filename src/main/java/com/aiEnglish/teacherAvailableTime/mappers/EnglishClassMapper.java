@@ -15,17 +15,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface EnglishClassMapper {
-    @Mapping(target = "teacher.id", source = "teacher")
     EnglishClass toEntity(EnglishClassPostDto englishClassPostDto);
-
-    @Mapping(target = "teacher", source = "teacher.id")
-    @Mapping(target = "teacher_name", source = "teacher.name")
     EnglishClassGetDto fromEntity(EnglishClass englishClass);
-
-    @Mapping(target = "teacher", source = "teacher.id")
-    @Mapping(target = "teacher_name", source = "teacher.name")
     List<EnglishClassGetDto> fromEntities(List<EnglishClass> englishClasses);
-
-    @Mapping(target = "teacher.id", source = "teacher")
     void copy(EnglishClassPutDto englishClassPutDto, @MappingTarget EnglishClass englishClass);
 }

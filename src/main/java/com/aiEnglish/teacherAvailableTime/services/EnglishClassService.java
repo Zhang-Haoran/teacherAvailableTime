@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 public class EnglishClassService {
     private final EnglishClassRepository englishClassRepository;
     private final EnglishClassMapper englishClassMapper;
-    private final TeacherRepository teacherRepository;
 
     public List<EnglishClassGetDto> getAllEnglishClasses() {
         return englishClassRepository.findAll().stream()
@@ -26,9 +25,9 @@ public class EnglishClassService {
     }
 
     public EnglishClassGetDto create(EnglishClassPostDto englishClassPostDto) {
-        EnglishClass englishClass = englishClassRepository.save(englishClassMapper.toEntity(englishClassPostDto));
-        EnglishClassGetDto englishClassGetDto = englishClassMapper.fromEntity(englishClass);
-        englishClassGetDto.setTeacher_name(englishClass.getTeacher().getName());
+        EnglishClass englishClass = englishClassMapper.toEntity(englishClassPostDto);
+        EnglishClass savedEnglishClass = englishClassRepository.save(englishClass);
+        EnglishClassGetDto englishClassGetDto = englishClassMapper.fromEntity(savedEnglishClass);
 
         return englishClassGetDto;
     }

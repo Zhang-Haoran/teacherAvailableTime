@@ -18,10 +18,24 @@ public class EnglishClass {
     @Column(name="date")
     private String date;
 
-    @Column(name="time")
-    private String time;
+    @Column(name="startTime")
+    private String startTime;
 
-    @ManyToOne
-    @JoinColumn(name = "teacher_id", nullable = false)
-    private Teacher teacher;
+    @Column(name="endTime")
+    private String endTime;
+
+    @Column(name="special")
+    private String special;
+
+    @Column(name="uniform")
+    private String uniform;
+
+    @Column(name="studio")
+    private String studio;
+
+    @Column(name="topic")
+    private String topic;
+
+    @Column(name="teacher")
+    private Long teacher;
 }
