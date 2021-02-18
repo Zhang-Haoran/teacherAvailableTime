@@ -34,7 +34,7 @@ public class TeacherController {
         return ResponseEntity.ok(teacherService.modify(teacherId, teacherPutDto));
     }
 
-    @DeleteMapping("/teacherId")
+    @DeleteMapping("/{teacherId}")
     public ResponseEntity delete(@PathVariable Long teacherId) {
         teacherService.delete(teacherId);
         return ResponseEntity.ok().build();
