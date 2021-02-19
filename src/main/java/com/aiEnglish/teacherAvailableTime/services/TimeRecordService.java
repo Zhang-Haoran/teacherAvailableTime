@@ -52,4 +52,9 @@ public class TimeRecordService {
     public void clear() {
         timeRecordRepository.deleteAll();
     }
+
+    public List<TimeRecordGetDto> findTimeRecordsByDate(String date) {
+        List<TimeRecord> timeRecords = timeRecordRepository.findTimeRecordsByDate(date);
+        return timeRecordMapper.fromEntities(timeRecords);
+    }
 }

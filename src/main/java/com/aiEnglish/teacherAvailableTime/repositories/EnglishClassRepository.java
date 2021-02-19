@@ -10,4 +10,7 @@ import java.util.List;
 public interface EnglishClassRepository extends JpaRepository<EnglishClass, Long> {
     @Query("select e from EnglishClass e where e.teacher.id = :teacher_id")
     List<EnglishClass> findTimeRecordsByTeacherId(@Param("teacher_id") Long teacher_id);
+
+    @Query("select e from EnglishClass e where e.date = :date")
+    List<EnglishClass> findEnglishClassByDate(@Param("date") String date);
 }

@@ -21,6 +21,9 @@ public class TimeRecord {
     @Column(name="endTime")
     private String endTime;
 
+    @Column(name="date")
+    private String date;
+
     @ManyToOne
     @JoinColumn(name = "teacher_id", nullable = false)
     private Teacher teacher;

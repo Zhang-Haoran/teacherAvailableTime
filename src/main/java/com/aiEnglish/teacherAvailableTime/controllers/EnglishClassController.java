@@ -28,6 +28,12 @@ public class EnglishClassController {
        return ResponseEntity.ok(englishClassService.create(englishClassPostDto));
     }
 
+    @GetMapping(value="/search", params = "date")
+    public ResponseEntity<List<EnglishClassGetDto>> findEnglishClassesByDate(@RequestParam String date){
+        List<EnglishClassGetDto> englishClassGetDtos = englishClassService.findEnglishClassesByDate(date);
+        return ResponseEntity.ok(englishClassGetDtos);
+    }
+
     @PostMapping("/init")
     public ResponseEntity initClass() {
         final int LENGTH = 106;

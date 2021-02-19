@@ -6,5 +6,6 @@ import lombok.Data;
 public class TimeRecordPostDto {
     private String startTime;
     private String endTime;
+    private String date;
     private Long teacher;
 }

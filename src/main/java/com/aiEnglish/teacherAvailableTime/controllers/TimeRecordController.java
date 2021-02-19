@@ -6,6 +6,7 @@ import com.aiEnglish.teacherAvailableTime.dtos.teacher.TeacherPostDto;
 import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordGetDto;
 import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordPostDto;
 import com.aiEnglish.teacherAvailableTime.dtos.timeRecord.TimeRecordPutDto;
+import com.aiEnglish.teacherAvailableTime.entities.TimeRecord;
 import com.aiEnglish.teacherAvailableTime.services.TeacherService;
 import com.aiEnglish.teacherAvailableTime.services.TimeRecordService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,12 @@ public class TimeRecordController {
     public ResponseEntity<List<TimeRecordGetDto>> findAll() {
         List<TimeRecordGetDto> list = timeRecordService.getAllTimeRecords();
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping(value = "/search", params = "date")
+    public ResponseEntity<List<TimeRecordGetDto>> findTimeRecordsByDate(@RequestParam String date){
+        List<TimeRecordGetDto> timeRecordGetDtos = timeRecordService.findTimeRecordsByDate(date);
+        return ResponseEntity.ok(timeRecordGetDtos);
     }
 
     @PostMapping("/init")
@@ -53,10 +60,18 @@ public class TimeRecordController {
                 teacherService.create(teacherPostDto);
             }
 
+            final int DATE = 0;
+            final int TIME = 1;
             TimeRecordPostDto timeRecordPostDto = new TimeRecordPostDto();
             timeRecordPostDto.setTeacher(Long.valueOf(row[TeacherTimeHeaders.TEACHER_ID.getIndex()]));
-            timeRecordPostDto.setStartTime(row[TeacherTimeHeaders.START_TIME.getIndex()]);
-            timeRecordPostDto.setEndTime(row[TeacherTimeHeaders.END_TIME.getIndex()]);
+            String[] startDateTime = row[TeacherTimeHeaders.START_TIME.getIndex()].split("T");
+            String[] endDateTime = row[TeacherTimeHeaders.END_TIME.getIndex()].split("T");
+            if(startDateTime.length > TIME && endDateTime.length > TIME){
+                timeRecordPostDto.setDate(startDateTime[DATE]);
+                timeRecordPostDto.setStartTime(startDateTime[TIME]);
+                timeRecordPostDto.setEndTime(endDateTime[TIME]);
+            }
+
             timeRecordService.create(timeRecordPostDto);
         }
         return ResponseEntity.ok("");
