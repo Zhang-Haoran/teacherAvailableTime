@@ -1,6 +1,6 @@
 #Spring Boot 后端知识点
 
-##关于Java基础 
+##关于Java基础 - 2天
 
 1. Java 8的代码
     - (https://www.runoob.com/java/java8-new-features.html)
@@ -11,7 +11,7 @@
     - Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。
       Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）
       
-##关于spring
+##关于spring - 20天
 1. Spring 基本概念
     - (https://juejin.cn/post/6844903826076467207)
     - Spring框架是一个为Java应用程序的开发提供了综合、广泛的基础性支持的Java平台。Spring帮助开发者解决了开发中基础性的问题，使得开发人员可以专注于应用程序的开发
@@ -57,7 +57,7 @@
     - Servlet 根据请求对象（HttpServletRequest）的信息决定如何处理， 通过响应对象（HttpServletResponse）来创建响应。
     - 将IoC容器管理理的对象称为Bean
 
-##关于消息队列
+##关于消息队列 - 5天
 1. 消息队列
     - (https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)
     - 消息队列提供了异步的通信协议
@@ -71,12 +71,12 @@
     - (https://spring.io/projects/spring-kafka)
     - (https://www.liaoxuefeng.com/wiki/1252599548343744/1282388443267106)
     - Kafka也是一个消息服务器，它的特点一是快，二是有巨大的吞吐量
-##关于测试
+##关于测试 - 2天
 1. Junit单元测试
     - (https://juejin.cn/post/6844903778957656071)
     - JUnit 是一个 Java 编程语言的单元测试框架
 
-##关于项目打包与部署
+##关于项目打包与部署 - 14天 
 1. ssh
     - (https://www.baeldung.com/java-ssh-connection)
     - 是一种网络协议，它允许一台计算机通过不安全的网络安全地连接到另一台计算机。JSch是 SSH2 的 Java 实现，它允许我们连接到 SSH 服务器。创建一个客户端会话并将其配置为连接到我们的 SSH 服务器。然后，我们创建一个用于与 SSH 服务器通信的客户端通道，在该通道中我们提供了一个通道类型——在本例中为exec，这意味着我们将向服务器传递 shell 命令
@@ -102,7 +102,7 @@
     - 真实的生产环境应用会包含多个容器，而这些容器还很可能会跨越多个服务器主机部署。Kubernetes 提供了为那些工作负载大规模部署容器的编排与管理能力
     
 
-## 关于搜索服务器
+## 关于搜索服务器 - 14天
 1. ShardingSphere
     - (https://shardingsphere.apache.org/)
     - (https://www.jianshu.com/p/0238ff53c6bb?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
@@ -125,7 +125,7 @@
     - 数据库做搜索存在着许多弊端，例如： 存储问题：当数据量大的时候就必须进行分库分表
     - 是使用 Java 开发的，基于 Lucene、分布式、通过 Restful 方式进行交互的近实时搜索平台框架
     
-## 内功
+## 软件设计 - 23天
 1. Java 23种设计模式
     - (http://c.biancheng.net/design_pattern/)
     - (https://zhuanlan.zhihu.com/p/128145128)
