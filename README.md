@@ -1,6 +1,6 @@
 #Spring Boot 后端知识点
 
-##关于Java基础
+##关于Java基础 
 
 1. Java 8的代码
     - (https://www.runoob.com/java/java8-new-features.html)
@@ -125,7 +125,7 @@
     - 数据库做搜索存在着许多弊端，例如： 存储问题：当数据量大的时候就必须进行分库分表
     - 是使用 Java 开发的，基于 Lucene、分布式、通过 Restful 方式进行交互的近实时搜索平台框架
     
-## 内功概念
+## 内功
 1. Java 23种设计模式
     - (http://c.biancheng.net/design_pattern/)
     - (https://zhuanlan.zhihu.com/p/128145128)
