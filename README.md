@@ -1,4 +1,7 @@
+
+
 #Spring Boot 后端知识点
+
 
 ##关于Java基础 - 2天
 
@@ -11,6 +14,7 @@
     - Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。
       Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）
       
+
 ##关于spring - 20天
 1. Spring 基本概念
     - (https://juejin.cn/post/6844903826076467207)
@@ -56,6 +60,7 @@
     - Servlet 就是真正的负责请求、响应的
     - Servlet 根据请求对象（HttpServletRequest）的信息决定如何处理， 通过响应对象（HttpServletResponse）来创建响应。
     - 将IoC容器管理理的对象称为Bean
+    
 
 ##关于消息队列 - 5天
 1. 消息队列
@@ -71,10 +76,13 @@
     - (https://spring.io/projects/spring-kafka)
     - (https://www.liaoxuefeng.com/wiki/1252599548343744/1282388443267106)
     - Kafka也是一个消息服务器，它的特点一是快，二是有巨大的吞吐量
+    
+
 ##关于测试 - 2天
 1. Junit单元测试
     - (https://juejin.cn/post/6844903778957656071)
     - JUnit 是一个 Java 编程语言的单元测试框架
+
 
 ##关于项目打包与部署 - 14天 
 1. ssh
@@ -125,6 +133,7 @@
     - 数据库做搜索存在着许多弊端，例如： 存储问题：当数据量大的时候就必须进行分库分表
     - 是使用 Java 开发的，基于 Lucene、分布式、通过 Restful 方式进行交互的近实时搜索平台框架
     
+
 ## 软件设计 - 23天
 1. Java 23种设计模式
     - (http://c.biancheng.net/design_pattern/)
